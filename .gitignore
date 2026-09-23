@@ -1,10 +1,12 @@
 # Clone de referência (portfólio TeamZ) usado só como base de stack/estrutura.
 # Tem histórico git próprio e não faz parte deste repositório.
 base-portfolio/
+landing-dani-hoffman/
 
 # Dependências e build
 node_modules/
 dist/
+dist-ssr/
 build/
 
 # Ambiente
@@ -21,3 +23,8 @@ npm-debug.log*
 Thumbs.db
 .vscode/
 .idea/
+*.local
+
+# Arquivos originais enviados pelo cliente (alta resolução, não usados direto pelo app).
+# As versões recortadas/otimizadas para uso na página ficam em public/.
+src/assets/
