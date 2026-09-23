@@ -1,0 +1,23 @@
+# Clone de referência (portfólio TeamZ) usado só como base de stack/estrutura.
+# Tem histórico git próprio e não faz parte deste repositório.
+base-portfolio/
+
+# Dependências e build
+node_modules/
+dist/
+build/
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
