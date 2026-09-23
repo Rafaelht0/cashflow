@@ -26,7 +26,7 @@ export function Header() {
             ))}
           </nav>
           <a href={CHECKOUT_URL} className={styles.cta} target="_blank" rel="noopener noreferrer">
-            Quero a planilha
+            Quero o curso
           </a>
         </div>
       </Container>

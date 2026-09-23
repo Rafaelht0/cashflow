@@ -9,16 +9,16 @@ export function Hero() {
       <div className={styles.inner}>
         <div className={styles.content}>
           <p className={styles.promise}>{PRODUCT_TAGLINE}</p>
-          <span className={styles.badge}>{PRODUCT_NAME} · Planilha automatizada + Mini curso</span>
+          <span className={styles.badge}>{PRODUCT_NAME} · Curso + Planilha automatizada</span>
           <h1 className={styles.title}>
             Seu dinheiro organizado.
             <br />
             <em className="gold-text">Seu futuro decidido por você.</em>
           </h1>
           <p className={styles.subtitle}>
-            A mesma planilha e o mesmo método que eu uso para sair do “gasto pensando só no
-            agora” e construir reserva, metas e tranquilidade, explicados passo a passo num mini
-            curso direto ao ponto.
+            Um curso direto ao ponto, com o método que eu uso para sair do “gasto pensando só no
+            agora” e construir reserva, metas e tranquilidade, junto com a planilha automatizada
+            que coloca tudo em prática.
           </p>
           <div className={styles.actions}>
             <Button href={CHECKOUT_URL} size="lg">
