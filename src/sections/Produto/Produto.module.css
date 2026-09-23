@@ -41,12 +41,45 @@
 }
 
 .moduleNumber {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--color-gold-dark);
+  border-radius: 50%;
+  background: var(--color-surface);
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  font-variant-numeric: lining-nums;
   line-height: 1;
   color: var(--color-gold);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* preenchimento em degradê dourado, numa camada à parte para poder aparecer com fade */
+.moduleNumber::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modules li[data-reached='true'] .moduleNumber {
+  border-color: var(--color-gold);
+  color: var(--color-on-gold);
+}
+
+.modules li[data-reached='true'] .moduleNumber::before {
+  opacity: 1;
 }
 
 /* Planilha: complemento, lista de benefícios em duas colunas no desktop */
@@ -203,11 +236,6 @@
     font-size: 0.9rem;
   }
 
-  .moduleNumber {
-    min-width: 1.7rem;
-    font-size: 1.25rem;
-  }
-
   .list {
     gap: 9px;
     padding-top: 16px;
@@ -272,29 +300,81 @@
   .modules li[data-reached='false'] {
     color: var(--color-text-muted);
   }
+}
 
-  .moduleNumber {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 34px;
-    height: 34px;
-    min-width: 0;
-    border: 1.5px solid var(--color-gold-dark);
-    border-radius: 50%;
-    background: var(--color-surface);
-    color: var(--color-gold);
-    font-size: 0.95rem;
-    font-variant-numeric: lining-nums;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* Desktop e tablet: linha do tempo em colunas. Passar o mouse num módulo acende os pontos
+   e a linha até ele, em cascata (ver useTimelineProgress) */
+@media (min-width: 721px) {
+  .modules {
+    grid-auto-flow: column;
+    gap: 0 40px;
   }
 
-  .modules li[data-reached='true'] .moduleNumber {
-    border-color: var(--color-gold);
+  .modules li {
+    align-items: center;
+    gap: 14px;
+    height: 60px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-size: 0.98rem;
+  }
+
+  /* segmento de linha entre o ponto anterior e este */
+  .modules li::before,
+  .modules li::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 16.25px;
+    width: 1.5px;
+    height: 60px;
+  }
+
+  .modules li::before {
+    background: var(--color-border-strong);
+  }
+
+  .modules li::after {
     background: var(--gradient-gold);
-    color: var(--color-on-gold);
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .modules li[data-reached='true']::after {
+    transform: scaleY(1);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  /* o ponto acende logo depois que a linha chega nele */
+  .modules li[data-reached='true'] .moduleNumber,
+  .modules li[data-reached='true'] .moduleNumber::before {
+    transition-delay: calc(var(--delay, 0ms) + 200ms);
+  }
+}
+
+/* 3 colunas de 4 módulos */
+@media (min-width: 901px) {
+  .modules {
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .modules li:nth-child(4n + 1)::before,
+  .modules li:nth-child(4n + 1)::after {
+    display: none;
+  }
+}
+
+/* 2 colunas de 6 módulos */
+@media (min-width: 721px) and (max-width: 900px) {
+  .modules {
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .modules li:nth-child(6n + 1)::before,
+  .modules li:nth-child(6n + 1)::after {
+    display: none;
   }
 }
