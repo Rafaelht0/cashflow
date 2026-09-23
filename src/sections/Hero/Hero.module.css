@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(40px, 8vw, 96px);
+  padding-top: clamp(40px, 8vw, 96px);
   background:
     radial-gradient(ellipse 80% 60% at 75% 40%, rgba(59, 38, 22, 0.75) 0%, transparent 70%),
     var(--gradient-section);
@@ -23,8 +23,8 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
   gap: clamp(32px, 6vw, 80px);
   width: 100%;
   max-width: var(--max-width);
@@ -37,6 +37,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 22px;
+  align-self: center;
+  /* a seção termina logo abaixo da linha de confiança (acesso imediato...) */
+  padding-bottom: 0;
 }
 
 /* A promessa/slogan do produto: primeira coisa que a página comunica */
@@ -44,7 +47,7 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   background: var(--gradient-gold-text);
@@ -111,35 +114,43 @@
   background: var(--color-gold);
 }
 
+/* Desktop: foto no tamanho natural, com a base alinhada ao fim do bloco de texto.
+   A margem negativa faz ela subir para dentro do respiro superior da seção. */
 .photoWrap {
   position: relative;
+  align-self: end;
   justify-self: center;
-  width: min(100%, 440px);
+  width: min(100%, 420px);
+  margin-top: -56px;
 }
 
-/* Moldura em arco com borda dourada: dá o tom editorial/premium */
-.photoFrame {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 240px 240px 18px 18px;
-  padding: 6px;
-  background: var(--gradient-gold);
-  box-shadow: var(--shadow-md), var(--glow-gold);
+/* Brilho dourado atrás do recorte */
+.photoGlow {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: 115%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 164, 92, 0.32) 0%, rgba(143, 107, 48, 0.12) 45%, transparent 70%);
+  pointer-events: none;
 }
 
 .photo {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 234px 234px 14px 14px;
-  background: var(--color-surface);
+  height: auto;
+  /* suaviza o corte na base para a foto se fundir com a seção */
+  -webkit-mask-image: linear-gradient(180deg, #000 84%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 84%, transparent 100%);
 }
 
 .signature {
   position: absolute;
-  left: -24px;
-  bottom: 32px;
+  left: -12px;
+  bottom: 40px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   padding: 14px 20px;
@@ -167,17 +178,40 @@
 @media (max-width: 860px) {
   .inner {
     grid-template-columns: 1fr;
+    row-gap: 0;
   }
 
-  /* No celular a foto vem primeiro, logo abaixo do header */
+  .hero {
+    padding-bottom: clamp(40px, 8vw, 96px);
+  }
+
+  .content {
+    padding-bottom: 0;
+  }
+
+  /* No celular a foto vem primeiro, logo abaixo do header.
+     O bloco tem só 84% da altura da foto: o resto (transparente, por causa da máscara)
+     sobra por baixo e o texto sobe até o corte em degradê. */
   .photoWrap {
+    margin-top: 0;
     order: -1;
-    width: min(100%, 340px);
+    width: min(100%, 320px);
+    aspect-ratio: 795 / 1173;
+  }
+
+  .photo {
+    position: absolute;
+    top: 0;
+    /* o recorte tem a Dani ~4% à direita do centro; compensa para centralizar */
+    left: -3.9%;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(180deg, #000 75%, transparent 84%);
+    mask-image: linear-gradient(180deg, #000 75%, transparent 84%);
   }
 
   .signature {
     left: 50%;
-    bottom: -18px;
+    bottom: 30px;
     transform: translateX(-50%);
     align-items: center;
     white-space: nowrap;
@@ -186,7 +220,7 @@
   .content {
     align-items: center;
     text-align: center;
-    margin-top: 12px;
+    margin-top: -16px;
   }
 
   .promise {

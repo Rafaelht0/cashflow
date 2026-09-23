@@ -36,14 +36,13 @@ export function Hero() {
         </div>
 
         <div className={styles.photoWrap}>
-          <div className={styles.photoFrame}>
-            <img
-              src="/dani-hoffman.jpg"
-              alt="Dani Hoffman, educadora financeira"
-              className={styles.photo}
-              fetchPriority="high"
-            />
-          </div>
+          <div className={styles.photoGlow} aria-hidden="true" />
+          <img
+            src="/dani-hoffman-hero.webp"
+            alt="Dani Hoffman, educadora financeira"
+            className={styles.photo}
+            fetchPriority="high"
+          />
           <div className={styles.signature}>
             <strong>Dani Hoffman</strong>
             <span>Educadora financeira desde 2021</span>
