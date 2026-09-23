@@ -171,6 +171,59 @@
   font-size: 0.95rem;
 }
 
+/* Celular: cartão de oferta um pouco mais enxuto que no desktop, sem apertar demais */
+@media (max-width: 600px) {
+  .urgency {
+    padding: 13px 18px;
+    font-size: 0.88rem;
+  }
+
+  .cardBody {
+    gap: 18px;
+    padding: 24px 20px 26px;
+  }
+
+  .product {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    margin-top: -10px;
+    font-size: 0.68rem;
+  }
+
+  .list {
+    gap: 8px;
+  }
+
+  .list li {
+    padding: 10px 12px 10px 38px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .list li::before {
+    left: 13px;
+  }
+
+  .installments {
+    font-size: 2.6rem;
+  }
+
+  .cash {
+    font-size: 0.9rem;
+  }
+
+  .cardBody > a {
+    padding: 16px 24px;
+    font-size: 0.92rem;
+  }
+
+  .secure {
+    font-size: 0.75rem;
+  }
+}
+
 @media (max-width: 600px) {
   .guarantee {
     flex-direction: column;
