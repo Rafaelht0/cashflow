@@ -1,7 +1,9 @@
 .section {
   padding-block: var(--section-padding);
+  /* o brilho fica no meio da seção e some antes da base, que termina em #24170d
+     e continua sem emenda no degradê do rodapé */
   background:
-    radial-gradient(ellipse 60% 80% at 50% 100%, rgba(143, 107, 48, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 60%, rgba(143, 107, 48, 0.35) 0%, transparent 70%),
     linear-gradient(180deg, var(--color-bg) 0%, #24170d 100%);
   border-top: 1px solid var(--color-border);
 }

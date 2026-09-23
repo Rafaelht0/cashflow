@@ -1,7 +1,19 @@
 .footer {
-  border-top: 1px solid var(--color-border);
+  position: relative;
   padding-block: 40px;
-  background: var(--color-bg);
+  /* começa na cor em que a seção anterior termina e escurece até o fundo da página */
+  background: linear-gradient(180deg, #24170d 0%, var(--color-bg) 70%);
+}
+
+/* linha discreta que se apaga nas pontas, separando o rodapé da chamada final */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-border-strong) 50%, transparent 100%);
 }
 
 .inner {
