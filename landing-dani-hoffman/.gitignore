@@ -18,3 +18,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.local
+
+# Arquivos originais enviados pelo cliente (alta resolução, não usados direto pelo app).
+# As versões recortadas/otimizadas para uso na página ficam em public/.
+src/assets/
