@@ -1,0 +1,26 @@
+.section {
+  padding-block: var(--section-padding);
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 100%, rgba(143, 107, 48, 0.35) 0%, transparent 70%),
+    linear-gradient(180deg, var(--color-bg) 0%, #24170d 100%);
+  border-top: 1px solid var(--color-border);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2.3rem, 6vw, 3.8rem);
+}
+
+.text {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
