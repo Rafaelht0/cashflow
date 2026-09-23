@@ -6,7 +6,7 @@ import styles from './Faq.module.css';
 const PERGUNTAS = [
   {
     q: 'Preciso saber mexer em planilha?',
-    a: 'Não. A planilha já vem pronta e automatizada: você só preenche os lançamentos. No mini curso eu mostro cada passo da configuração.',
+    a: 'Não. A planilha já vem pronta e automatizada: você só preenche os lançamentos. No curso eu te guio passo a passo, inclusive na estruturação da planilha.',
   },
   {
     q: 'Preciso instalar algum programa?',
@@ -14,7 +14,7 @@ const PERGUNTAS = [
   },
   {
     q: 'Como recebo o acesso?',
-    a: 'Logo após a confirmação do pagamento, você recebe no seu e-mail o acesso à área de membros da Kiwify, com a planilha e as aulas.',
+    a: 'Logo após a confirmação do pagamento, você recebe no seu e-mail o acesso à área de membros da Kiwify, com as aulas e a planilha.',
   },
   {
     q: 'Por quanto tempo tenho acesso?',

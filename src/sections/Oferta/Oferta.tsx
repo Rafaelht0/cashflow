@@ -12,8 +12,8 @@ import {
 import styles from './Oferta.module.css';
 
 const INCLUSO = [
-  'Planilha Financeira Automatizada',
-  'Mini Curso completo com a Dani',
+  'Curso completo com a Dani: 12 módulos',
+  'Planilha Financeira Automatizada de brinde',
   'Acesso imediato após a confirmação',
   'Atualizações da planilha sem custo extra',
 ];
@@ -67,7 +67,7 @@ export function Oferta() {
           <div>
             <h3>Garantia incondicional de {GUARANTEE_DAYS} dias</h3>
             <p>
-              Entre, use a planilha e assista às aulas. Se por qualquer motivo não fizer sentido
+              Entre, assista às aulas e use a planilha. Se por qualquer motivo não fizer sentido
               para você, é só pedir o reembolso dentro do prazo e você recebe 100% do valor de
               volta. Sem perguntas.
             </p>

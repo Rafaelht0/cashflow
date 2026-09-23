@@ -29,8 +29,8 @@ export function Sobre() {
               para onde cada real vai.
             </p>
             <p className={styles.text}>
-              Hoje ensino, de forma simples e sem ostentação, o mesmo caminho que eu percorri. Essa
-              planilha e esse mini curso são o ponto de partida que eu gostaria de ter tido.
+              Hoje ensino, de forma simples e sem ostentação, o mesmo caminho que eu percorri. Esse
+              curso e essa planilha são o ponto de partida que eu gostaria de ter tido.
             </p>
             <ul className={styles.credentials}>
               {CREDENCIAIS.map((c) => (
