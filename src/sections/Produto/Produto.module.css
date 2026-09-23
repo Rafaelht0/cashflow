@@ -13,16 +13,21 @@
   box-shadow: var(--shadow-md), var(--glow-gold);
 }
 
-.modules {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.modulesWrap {
+  position: relative;
   margin-top: 8px;
   padding-top: 24px;
   border-top: 1px solid var(--color-border);
 }
 
+.modules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
 .modules li {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 14px;
@@ -163,9 +168,133 @@
   }
 }
 
+/* Celular: cards mais baixos, para a grade de módulos não virar uma rolagem interminável */
+@media (max-width: 600px) {
+  .card {
+    gap: 12px;
+    padding: 22px 18px;
+  }
+
+  .number {
+    font-size: 2.6rem;
+  }
+
+  .cardTitle {
+    font-size: 1.5rem;
+  }
+
+  .cardText {
+    font-size: 0.92rem;
+  }
+
+  .modulesWrap {
+    margin-top: 2px;
+    padding-top: 16px;
+  }
+
+  .modules {
+    gap: 6px;
+  }
+
+  .modules li {
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+  }
+
+  .moduleNumber {
+    min-width: 1.7rem;
+    font-size: 1.25rem;
+  }
+
+  .list {
+    gap: 9px;
+    padding-top: 16px;
+  }
+
+  .list li {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 720px) {
   .modules,
   .complement .list {
     grid-template-columns: 1fr;
+  }
+
+  /* Linha do tempo: os números viram pontos ligados por uma linha dourada que se preenche
+     conforme a página rola (ver useTimelineProgress) */
+  .modules {
+    position: relative;
+    gap: 0;
+  }
+
+  .modules::before,
+  .modules::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    left: 16.25px;
+    width: 1.5px;
+    z-index: 0;
+  }
+
+  .modules::before {
+    background: var(--color-border-strong);
+  }
+
+  .modules::after {
+    background: var(--gradient-gold);
+    transform-origin: top;
+    transform: scaleY(var(--progress, 0));
+    transition: transform 0.15s linear;
+  }
+
+  .modules li {
+    align-items: center;
+    gap: 14px;
+    min-height: 50px;
+    padding: 8px 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .modules li[data-reached='true'] {
+    color: var(--color-text);
+  }
+
+  .modules li[data-reached='false'] {
+    color: var(--color-text-muted);
+  }
+
+  .moduleNumber {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    min-width: 0;
+    border: 1.5px solid var(--color-gold-dark);
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-gold);
+    font-size: 0.95rem;
+    font-variant-numeric: lining-nums;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .modules li[data-reached='true'] .moduleNumber {
+    border-color: var(--color-gold);
+    background: var(--gradient-gold);
+    color: var(--color-on-gold);
   }
 }

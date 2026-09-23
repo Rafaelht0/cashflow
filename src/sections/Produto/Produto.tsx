@@ -1,5 +1,7 @@
+import { useRef } from 'react';
 import { Container } from '../../components/Container/Container';
 import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
+import { useTimelineProgress } from '../../hooks/useTimelineProgress';
 import styles from './Produto.module.css';
 
 const MODULOS = [
@@ -27,6 +29,9 @@ const BENEFICIOS_PLANILHA = [
 ];
 
 export function Produto() {
+  const modulesRef = useRef<HTMLOListElement>(null);
+  useTimelineProgress(modulesRef);
+
   return (
     <section id="produto" className={styles.section}>
       <Container>
@@ -51,14 +56,16 @@ export function Produto() {
             12 módulos diretos ao ponto: da mentalidade financeira à análise dos seus números e às
             decisões que impactam o seu futuro.
           </p>
-          <ol className={styles.modules}>
-            {MODULOS.map((modulo, i) => (
-              <li key={modulo}>
-                <span className={styles.moduleNumber}>{String(i + 1).padStart(2, '0')}</span>
-                {modulo}
-              </li>
-            ))}
-          </ol>
+          <div className={styles.modulesWrap}>
+            <ol className={styles.modules} ref={modulesRef}>
+              {MODULOS.map((modulo, i) => (
+                <li key={modulo}>
+                  <span className={styles.moduleNumber}>{String(i + 1).padStart(2, '0')}</span>
+                  {modulo}
+                </li>
+              ))}
+            </ol>
+          </div>
         </article>
 
         <article className={`${styles.card} ${styles.complement}`}>
