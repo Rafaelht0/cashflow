@@ -2,38 +2,28 @@ import { Container } from '../../components/Container/Container';
 import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
 import styles from './Produto.module.css';
 
-const ITENS = [
-  {
-    numero: '01',
-    tipo: 'Ferramenta',
-    titulo: 'Planilha Financeira Automatizada',
-    descricao:
-      'Você só lança entradas e saídas. A planilha faz as contas, organiza por categoria e mostra onde o seu dinheiro está indo — em Excel ou LibreOffice, sem precisar instalar mais nada.',
-    beneficios: [
-      'Cartões e contas 100% personalizáveis: cadastre quantos quiser',
-      'Compras parceladas divididas automaticamente, mês a mês — mesmo quando a parcela cai só no ano seguinte',
-      'Dashboard com gráficos automáticos: top 5 maiores gastos e receitas x despesas mês a mês',
-      'Filtro de ano e mês independente em cada aba da planilha',
-      'Gastos classificados automaticamente em Essencial, Estilo de Vida, Educação e Planos Futuros',
-      'Sem fórmulas: você só lança, o resto é automático',
-    ],
-  },
-  {
-    numero: '02',
-    tipo: 'Método',
-    titulo: 'Mini Curso com a Dani',
-    // TODO: conteúdo programático (aulas, temas, carga horária) ainda não foi repassado pelo cliente.
-    // A lista abaixo é uma proposta a validar antes de publicar.
-    descricao:
-      'Aulas curtas e diretas para você configurar a planilha, entender seus números e transformar isso em decisões.',
-    beneficios: [
-      'Como configurar a planilha do zero em poucos minutos',
-      'Como descobrir para onde o dinheiro está indo',
-      'Como montar sua reserva de emergência',
-      'Como definir metas que cabem na sua realidade',
-      'Os primeiros passos para começar a investir',
-    ],
-  },
+const MODULOS = [
+  'Boas-vindas',
+  'Mentalidade financeira',
+  'Levantamento de dados',
+  'Usando a IA para simplificar',
+  'Estruturando a planilha',
+  'Análise de receitas',
+  'Análise de despesas',
+  'Análise do fluxo de caixa',
+  'Decisões que impactam o futuro (meios de pagamento)',
+  'Método 70/30',
+  'Dash',
+  'Conclusão final',
+];
+
+const BENEFICIOS_PLANILHA = [
+  'Cartões e contas 100% personalizáveis: cadastre quantos quiser',
+  'Compras parceladas divididas automaticamente, mês a mês — mesmo quando a parcela cai só no ano seguinte',
+  'Dashboard com gráficos automáticos: top 5 maiores gastos e receitas x despesas mês a mês',
+  'Filtro de ano e mês independente em cada aba da planilha',
+  'Gastos classificados automaticamente em Essencial, Estilo de Vida, Educação e Planos Futuros',
+  'Sem fórmulas: você só lança, o resto é automático',
 ];
 
 export function Produto() {
@@ -44,29 +34,50 @@ export function Produto() {
           eyebrow="O que você recebe"
           title={
             <>
-              Uma ferramenta e um método. <em className="gold-text">Juntos.</em>
+              Um curso completo para mudar sua relação com o dinheiro.{' '}
+              <em className="gold-text">E a planilha para colocar em prática.</em>
             </>
           }
-          subtitle="A planilha organiza. O mini curso ensina a usar cada número a seu favor. Um sem o outro fica pela metade."
+          subtitle="Você aprende o método com a Dani, módulo a módulo, e já aplica na planilha automatizada que acompanha o curso."
         />
 
-        <div className={styles.grid}>
-          {ITENS.map((item) => (
-            <article key={item.numero} className={styles.card}>
-              <div className={styles.cardHead}>
-                <span className={styles.number}>{item.numero}</span>
-                <span className={styles.type}>{item.tipo}</span>
-              </div>
-              <h3 className={styles.cardTitle}>{item.titulo}</h3>
-              <p className={styles.cardText}>{item.descricao}</p>
-              <ul className={styles.list}>
-                {item.beneficios.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
+        <article className={`${styles.card} ${styles.main}`}>
+          <div className={styles.cardHead}>
+            <span className={styles.number}>01</span>
+            <span className={styles.type}>Curso principal</span>
+          </div>
+          <h3 className={styles.cardTitle}>Curso Cash Flow com a Dani</h3>
+          <p className={styles.cardText}>
+            12 módulos diretos ao ponto: da mentalidade financeira à análise dos seus números e às
+            decisões que impactam o seu futuro.
+          </p>
+          <ol className={styles.modules}>
+            {MODULOS.map((modulo, i) => (
+              <li key={modulo}>
+                <span className={styles.moduleNumber}>{String(i + 1).padStart(2, '0')}</span>
+                {modulo}
+              </li>
+            ))}
+          </ol>
+        </article>
+
+        <article className={`${styles.card} ${styles.complement}`}>
+          <div className={styles.cardHead}>
+            <span className={styles.number}>02</span>
+            <span className={styles.type}>Complemento prático</span>
+          </div>
+          <h3 className={styles.cardTitle}>Planilha Financeira Automatizada</h3>
+          <p className={styles.cardText}>
+            A ferramenta que coloca o curso em prática. Você só lança entradas e saídas; a planilha
+            faz as contas e mostra onde o seu dinheiro está indo, em Excel ou LibreOffice, sem
+            precisar instalar mais nada.
+          </p>
+          <ul className={styles.list}>
+            {BENEFICIOS_PLANILHA.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+        </article>
 
         <p className={styles.plus}>
           <span>+</span> Acesso pela área de membros da Kiwify, no seu tempo, quantas vezes quiser.
