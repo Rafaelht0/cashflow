@@ -6,12 +6,11 @@ export const PRODUCT_NAME = 'Cash Flow';
 
 export const PRODUCT_TAGLINE = 'Planeje, organize e conquiste';
 
-// Preço de lançamento confirmado pelo cliente.
+// Preço confirmado pelo cliente: R$ 69,99 à vista ou 12x de R$ 6,99 (parcelado com juros,
+// já que 12 x 6,99 passa do valor à vista). Deve bater com o que está configurado na Kiwify.
 export const PRICE = {
-  total: 'R$ 79,90',
-  // TODO: confirmar com o cliente se o parcelamento na Kiwify é sem juros
-  // (79,90 / 12 ≈ 6,66; o valor real pode variar um pouco por causa de juros do parcelamento).
-  installments: '12x de R$ 6,66',
+  total: 'R$ 69,99',
+  installments: '12x de R$ 6,99',
 };
 
 // TODO: cliente ainda não definiu o percentual do desconto de "comprar hoje". Ajustar aqui.
