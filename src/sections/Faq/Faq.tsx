@@ -10,7 +10,7 @@ const PERGUNTAS = [
   },
   {
     q: 'Preciso instalar algum programa?',
-    a: 'A planilha funciona em Excel ou LibreOffice (gratuito). Você baixa o arquivo dentro da área de membros e já começa a usar, sem precisar de mais nada. As aulas podem ser assistidas em qualquer dispositivo.',
+    a: 'A planilha funciona em Excel, Google Sheets ou LibreOffice (gratuito). Você baixa o arquivo dentro da área de membros e já começa a usar, sem precisar de mais nada. As aulas podem ser assistidas em qualquer dispositivo.',
   },
   {
     q: 'Como recebo o acesso?',
@@ -18,7 +18,7 @@ const PERGUNTAS = [
   },
   {
     q: 'Por quanto tempo tenho acesso?',
-    a: 'O acesso é seu para assistir no seu ritmo, quantas vezes quiser.',
+    a: 'O acesso é vitalício. Você assiste no seu ritmo, quantas vezes quiser, sem prazo para acabar.',
   },
   {
     q: 'E se eu não gostar?',

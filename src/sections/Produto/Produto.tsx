@@ -76,7 +76,7 @@ export function Produto() {
           <h3 className={styles.cardTitle}>Planilha Financeira Automatizada</h3>
           <p className={styles.cardText}>
             A ferramenta que coloca o curso em prática. Você só lança entradas e saídas; a planilha
-            faz as contas e mostra onde o seu dinheiro está indo, em Excel ou LibreOffice, sem
+            faz as contas e mostra onde o seu dinheiro está indo, em Excel, Google Sheets ou LibreOffice, sem
             precisar instalar mais nada.
           </p>
           <ul className={styles.list}>
