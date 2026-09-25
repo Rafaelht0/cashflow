@@ -58,3 +58,12 @@
     padding: 18px;
   }
 }
+
+/* frase de fechamento, depois das dores */
+.closing {
+  max-width: 560px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}

@@ -16,13 +16,11 @@ export function Dor() {
     <section className={styles.section}>
       <Container>
         <SectionHeading
-          eyebrow="Você se reconhece?"
           title={
             <>
               Não é falta de dinheiro. <em className="gold-text">É falta de direção.</em>
             </>
           }
-          subtitle="Se alguma dessas frases parece ter sido escrita sobre você, essa página é para você."
         />
         <ul className={styles.grid}>
           {DORES.map((dor) => (
@@ -34,6 +32,9 @@ export function Dor() {
             </li>
           ))}
         </ul>
+        <p className={styles.closing}>
+          Se alguma dessas frases parece ter sido escrita sobre você, essa página é para você.
+        </p>
       </Container>
     </section>
   );
